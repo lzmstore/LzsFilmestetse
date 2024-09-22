@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LZSFILMES</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="media.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #007BFF;
+            color: red;
+            text-align: center;
+            padding: 10px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+        .btn-como-assistir,
+        .btn-nossa-historia,
+        .btn-desenvolvedor,
+        .btn-baixarapp,
+        .btn-feedback {
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .btn-como-assistir:hover,
+        .btn-nossa-historia:hover,
+        .btn-desenvolvedor:hover,
+        .btn-baixarapp:hover,
+        .btn-feedback:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #0056b3;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid red;
+        }
+        .perfil-form {
+            margin-top: 20px;
+            display: none; /* Inicialmente oculto */
+        }
+        .perfil-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .perfil-form input[type="text"],
+        .perfil-form input[type="radio"] {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 80%;
+            max-width: 300px;
+        }
+        .perfil-form button {
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        .perfil-form button:hover {
+            background-color: #0056b3;
+        }
+        .foto-perfil {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .foto-perfil img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        #alterar-perfil-btn {
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #alterar-perfil-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8019636020418409" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>LZSFILMES</h1>
+    </header>
+    
+    <div class="content">
+        <section class="escolha">
+            <h1 class="escolha__texto">Quem está assistindo?</h1>
+            <ul class="escolha__perfil">
+                <li class="escolha__lista">
+                    <a id="perfil-link" href="principal.html" class="perfil">
+                        <img id="perfil-img" src="img/Perfil.jpg" alt="Foto de perfil" class="perfil__foto">
+                    </a>
+                    <p id="perfil-texto" class="perfil__texto">leozimm</p>
+                </li>
+            </ul>
+        </section>
+        
+        <button id="alterar-perfil-btn" onclick="mostrarFormulario()">Alterar Perfil</button>
+        
+        <section class="perfil-form" id="perfil-form">
+            <form>
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu novo nome de usuário">
+                <div class="foto-perfil">
+                    <label><input type="radio" name="profile-picture" value="images (8).jpeg" checked><img src="images (8).jpeg" alt="Foto 1"></label>
+                    <label><input type="radio" name="profile-picture" value="images (9).jpeg"><img src="images (9).jpeg" alt="Foto 2"></label>
+                    <label><input type="radio" name="profile-picture" value="download (1) (7).jpeg"><img src="download (1) (7).jpeg" alt="Foto 3"></label>
+                </div>
+                <button type="button" onclick="salvarAlteracoes()">Salvar Alterações</button>
+            </form>
+        </section>
+        
+        <a href="ComoAssistir.html" class="btn-como-assistir">Como Assistir</a>
+        <a href="meudev.html" class="btn-desenvolvedor">Meu Desenvolvedor</a>
+        <a href="LZSFILMES.apk" class="btn-baixarapp">Baixar o app</a>
+        
+        <a href="https://submit.jotform.com/242648837989683" class="btn-feedback" target="_blank">Deixar Feedback</a>
+    
+        <div id="feedback-form" style="display:none;">
+            <iframe
+              id="JotFormIFrame-242648837989683"
+              title="Formulário de contato para site ou blog"
+              onload="window.parent.scrollTo(0,0)"
+              allowtransparency="true"
+              allow="geolocation; microphone; camera; fullscreen"
+              src="https://form.jotform.com/242648837989683"
+              frameborder="0"
+              style="min-width:100%;max-width:100%;height:539px;border:none;"
+              scrolling="no"
+            >
+            </iframe>
+            <script src='https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js'></script>
+            <script>window.jotformEmbedHandler("iframe[id='JotFormIFrame-242648837989683']", "https://form.jotform.com/")</script>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© Site feito pelo Leozim</p>
+    </footer>
+    
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+
+        function mostrarFormulario() {
+            document.getElementById('perfil-form').style.display = 'block';
+            document.getElementById('alterar-perfil-btn').style.display = 'none';
+        }
+
+        function salvarAlteracoes() {
+            const username = document.getElementById('username').value;
+            const profilePicture = document.querySelector('input[name="profile-picture"]:checked').value;
+            
+            document.getElementById('perfil-texto').textContent = username;
+            document.getElementById('perfil-img').src = profilePicture;
+            
+            document.getElementById('perfil-form').style.display = 'none';
+            document.getElementById('alterar-perfil-btn').style.display = 'block';
+        }
+
+        function mostrarFeedback() {
+            const feedbackForm = document.getElementById('feedback-form');
+            feedbackForm.style.display = feedbackForm.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

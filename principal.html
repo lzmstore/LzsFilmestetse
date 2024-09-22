@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LZSFILMES</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/128/7813/7813975.png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .content {
+            flex: 1;
+        }
+        .search-bar {
+            padding: 20px;
+            text-align: center;
+        }
+        .player-container {
+            padding: 20px;
+            text-align: center;
+        }
+        .results-section {
+            padding: 20px;
+        }
+        .movie-info {
+            padding: 20px;
+            text-align: center;
+        }
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: black;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+            color: white;
+            z-index: 1000;
+        }
+        footer {
+            background-color: #0056b3;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 1px solid red;
+        }
+        header {
+            background-color: #007BFF;
+            color: red;
+            text-align: center;
+            padding: 20px;
+            position: relative; /* Ensure absolute positioning within header */
+        }
+        .profile-info {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .profile-info img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .profile-info p {
+            margin: 0;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8019636020418409"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <h1>LZSFILMES</h1>
+        <div class="profile-info">
+            <!-- Profile info will be populated here -->
+        </div>
+    </header>
+    
+    <div class="content">
+        <div class="search-bar">
+            <input type="search" name="search" id="input-search" placeholder="Digite o nome do filme ou série">
+            <button type="button" id="btn-search">Buscar</button>
+        </div>
+
+        <div id="player" class="player-container">
+            <!-- Player content here -->
+        </div>
+
+        <div class="results-section">
+            <table id="results-list" class="results-table">
+                <thead>
+                    <tr>
+                        <!-- Table headers here -->
+                    </tr>
+                </thead>
+                <tbody id="result-movies">
+                    <!-- Movie results here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div id="movie-popup" class="popup">
+            <div class="popup-content">
+                <p id="popup-question"></p>
+                <div class="popup-buttons">
+                    <button id="popup-yes">Sim</button>
+                    <button id="popup-no">Não</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="season-popup" class="popup">
+            <div class="popup-content">
+                <span onclick="hideSeasonPopup()" style="cursor:pointer;">&times; Fechar</span>
+                <div id="season-popup-content"></div>
+            </div>
+        </div>
+
+        <div id="episode-popup" class="popup">
+            <div class="popup-content">
+                <span onclick="hideEpisodePopup()" style="cursor:pointer;">&times; Fechar</span>
+                <div id="episode-popup-content"></div>
+            </div>
+        </div>
+
+        <div class="movie-info">
+            <h2 id="movie-title"></h2>
+            <p id="movie-synopsis"></p>
+            <img id="movie-poster" src="principal.html" alt="">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function carregarPerfil() {
+            const profileName = localStorage.getItem('profileName') || 'leozimm';
+            const profilePic = localStorage.getItem('profilePic') || 'images (8).jpeg';
+            
+            document.getElementById('profile-name').textContent = profileName;
+            document.getElementById('profile-pic').src = profilePic;
+        }
+
+        // Initialize profile on page load
+        window.onload = carregarPerfil;
+    </script>
+    
+    <footer>
+        <p>© Site feito pelo Leozim</p>
+    </footer>
+</body>
+</html>
